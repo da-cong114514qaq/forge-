@@ -10,7 +10,6 @@ print('爬虫：下载类型要小写呦。')
 version = input('爬虫：请输入您的mc版本：')
 version2 = input('爬虫：请输入您的forge版本：')
 type = input('爬虫：请输入您的下载类型：')
-name = 'forge-' + version + '-' + version2 + '-' + type + '.zip'
 
 # name2（后缀名）赋值
 if type == 'changelog':
@@ -31,6 +30,7 @@ if type == 'installer':
 if type == 'mdk':
     name2 = 'zip'
 
+name = 'forge-' + version + '-' + version2 + '-' + type + '.' + name2
 url = 'https://maven.minecraftforge.net/net/minecraftforge/forge/' + version + '-' + version2 + '/forge-' + version + '-' + version2 + '-' + type + '.' + name2
 download = requests.get(url)
 
