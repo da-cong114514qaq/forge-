@@ -1,7 +1,6 @@
 # 调用库
 import requests
 import sys
-import os
 
 # 提示
 print('爬虫：下载类型要小写呦。')
