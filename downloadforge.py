@@ -3,12 +3,12 @@ import requests
 import sys
 
 # 提示
-print('爬虫：下载类型要小写呦。')
+print('下载类型要小写呦。')
 
 # 赋值
-version = input('爬虫：请输入您的mc版本：')
-version2 = input('爬虫：请输入您的forge版本：')
-type = input('爬虫：请输入您的下载类型：')
+forge = print('推荐使用：\n14.23.5.2847')
+version = input('请输入您的forge版本：')
+type = input('请输入您的下载类型：')
 
 # name2（后缀名）赋值
 if type == 'changelog':
@@ -29,9 +29,24 @@ if type == 'installer':
 if type == 'mdk':
     name2 = 'zip'
 
-name = 'forge-' + version + '-' + version2 + '-' + type + '.' + name2
-url = 'https://maven.minecraftforge.net/net/minecraftforge/forge/' + version + '-' + version2 + '/forge-' + version + '-' + version2 + '-' + type + '.' + name2
+name = 'forge-' + '1.12.2' + '-' + '1.12.2' + '-' + type + '.' + name2
+url = 'https://maven.minecraftforge.net/net/minecraftforge/forge/' + '1.12.2' + '-' + version + '/forge-' + '1.12.2' + '-' + version + '-' + type + '.' + name2
 download = requests.get(url)
+
+old = '14.23.5.2847'
+new = '14.23.5.2851'
+
+if  version > new:
+    print('您使用的是新版本。')
+
+if  version == new:
+    print('您使用的是新版本。')
+
+if  version < old:
+    print('您使用的是旧版本。')
+
+if version == old:
+    print('您使用的是旧版本。')
 
 # 检查是否可以访问
 if download.status_code == 200:
