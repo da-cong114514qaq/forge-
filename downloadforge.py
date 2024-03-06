@@ -29,7 +29,7 @@ if type == 'installer':
 if type == 'mdk':
     name2 = 'zip'
 
-name = 'forge-' + '1.12.2' + '-' + '1.12.2' + '-' + type + '.' + name2
+name = 'forge-' + '1.12.2' + '-' + 'version' + '-' + type + '.' + name2
 url = 'https://maven.minecraftforge.net/net/minecraftforge/forge/' + '1.12.2' + '-' + version + '/forge-' + '1.12.2' + '-' + version + '-' + type + '.' + name2
 download = requests.get(url)
 
