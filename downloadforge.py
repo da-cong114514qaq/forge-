@@ -14,20 +14,11 @@ type = input('请输入您的下载类型：')
 if type == 'changelog':
     name2 = 'txt'
 
-if type == 'server':
-    name2 = 'zip'
-
-if type == 'client':
-    name2 = 'zip'
-
-if type == 'src':
+if type == 'server' or type == 'client' or type == 'src' or type == 'mdk':
     name2 = 'zip'
 
 if type == 'installer':
     name2 = 'jar'
-
-if type == 'mdk':
-    name2 = 'zip'
 
 name = 'forge-' + '1.12.2' + '-' + 'version' + '-' + type + '.' + name2
 url = 'https://maven.minecraftforge.net/net/minecraftforge/forge/' + '1.12.2' + '-' + version + '/forge-' + '1.12.2' + '-' + version + '-' + type + '.' + name2
@@ -36,16 +27,10 @@ download = requests.get(url)
 old = '14.23.5.2847'
 new = '14.23.5.2851'
 
-if  version > new:
+if  version > new or version == new:
     print('您使用的是新版本。')
 
-if  version == new:
-    print('您使用的是新版本。')
-
-if  version < old:
-    print('您使用的是旧版本。')
-
-if version == old:
+if  version < old or version == old:
     print('您使用的是旧版本。')
 
 # 检查是否可以访问
@@ -55,11 +40,7 @@ if download.status_code == 200:
         input('已执行成功！按回车关掉此页！')
         sys.exit()
 
-if download.status_code > 200:
-    input('您输入的不正确，请按回车结束并重试。')
-    sys.exit()
-
-if download.status_code < 200:
+if download.status_code > 200 or download.status_code < 200:
     input('您输入的不正确，请按回车结束并重试。')
     sys.exit()
 
